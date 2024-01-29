@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>String Functions Demo</title>
     <style>
-        body {
+         body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -14,19 +14,27 @@
             height: 100vh;
             margin: 0;
             background: url('https://e1.pxfuel.com/desktop-wallpaper/395/45/desktop-wallpaper-plain-color-backgrounds-inn-ios-plane-colour-background.jpg') no-repeat;
-             background-size: cover;
+            background-size: cover;
             background-color: #f8f9fa;
         }
 
-        input {
+        #inputText, #outputBox, #selectFunction, #executeButton {
             font-size: 18px;
             padding: 8px;
             margin-bottom: 10px;
         }
 
-        button {
-            font-size: 20px;
-            padding: 8px 16px;
+        #outputBox {
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            padding: 10px;
+            width: 50%;
+            color: white;
+
+
+        }
+
+        #selectFunction {
             cursor: pointer;
             background-color: #007bff;
             color: #fff;
@@ -35,47 +43,13 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-/*        button:hover {*/
-/*            background-color: #0056b3;*/
-/*        }*/
-
-        #result {
-            font-size: 18px;
-            margin-top: 20px;
-        }
-        #selectFunction {
-            width: 200px;
-            padding: 10px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        #output {
-            font-size: 20px;
-            margin-bottom: 5px;
-            margin-top: 20px;
-        }
-
-        #executeButton {
-            font-size: 20px;
-            padding: 10px;
-            cursor: pointer;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: #fff;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        #executeButton:hover {
+        #selectFunction:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-
-<input type="text" id="inputText" placeholder="Enter text...">
+   <input type="text" id="inputText" placeholder="Enter text..." oninput="executeFunction()">
 <select id="selectFunction">
     <option value="toUpperCase">toUpperCase</option>
     <option value="toLowerCase">toLowerCase</option>
@@ -88,8 +62,10 @@
     <option value="split">split</option>
     <option value="trim">trim</option>
 </select>
-<button id="executeButton" onclick="executeFunction()">Execute Function</button>
-<div id="output"></div>
+
+<div id="outputBox">
+    <div id="output"></div>
+</div>
 
 <script>
     function executeFunction() {
