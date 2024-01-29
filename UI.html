@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Functions Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: url('https://e1.pxfuel.com/desktop-wallpaper/395/45/desktop-wallpaper-plain-color-backgrounds-inn-ios-plane-colour-background.jpg') no-repeat;
+             background-size: cover;
+            background-color: #f8f9fa;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+/*        button:hover {*/
+/*            background-color: #0056b3;*/
+/*        }*/
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        #selectFunction {
+            width: 200px;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        #output {
+            font-size: 20px;
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        #executeButton {
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #executeButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" id="inputText" placeholder="Enter text...">
+<select id="selectFunction">
+    <option value="toUpperCase">toUpperCase</option>
+    <option value="toLowerCase">toLowerCase</option>
+    <option value="charAt">charAt</option>
+    <option value="substring">substring</option>
+    <option value="indexOf">indexOf</option>
+    <option value="lastIndexOf">lastIndexOf</option>
+    <option value="replace">replace</option>
+    <option value="length">length</option>
+    <option value="split">split</option>
+    <option value="trim">trim</option>
+</select>
+<button id="executeButton" onclick="executeFunction()">Execute Function</button>
+<div id="output"></div>
+
+<script>
+    function executeFunction() {
+        var inputText = document.getElementById('inputText').value;
+        var selectedFunction = document.getElementById('selectFunction').value;
+        var outputElement = document.getElementById('output');
+
+        switch (selectedFunction) {
+            case 'toUpperCase':
+                outputElement.innerText = inputText.toUpperCase();
+                break;
+            case 'toLowerCase':
+                outputElement.innerText = inputText.toLowerCase();
+                break;
+            case 'charAt':
+                var index = prompt('Enter index:');
+                outputElement.innerText = inputText.charAt(index);
+                break;
+            case 'substring':
+                var start = prompt('Enter start index:');
+                var end = prompt('Enter end index:');
+                outputElement.innerText = inputText.substring(start, end);
+                break;
+            case 'indexOf':
+                var searchValue = prompt('Enter search value:');
+                outputElement.innerText = inputText.indexOf(searchValue);
+                break;
+            case 'lastIndexOf':
+                var searchValue = prompt('Enter search value:');
+                outputElement.innerText = inputText.lastIndexOf(searchValue);
+                break;
+            case 'replace':
+                var oldValue = prompt('Enter old value:');
+                var newValue = prompt('Enter new value:');
+                outputElement.innerText = inputText.replace(oldValue, newValue);
+                break;
+            case 'length':
+                outputElement.innerText = 'Length: ' + inputText.length;
+                break;
+            case 'split':
+                var separator = prompt('Enter separator:');
+                outputElement.innerText = inputText.split(separator);
+                break;
+            case 'trim':
+                outputElement.innerText = inputText.trim();
+                break;
+            default:
+                outputElement.innerText = 'Invalid function';
+        }
+    }
+</script>
+
+</body>
+</html>
